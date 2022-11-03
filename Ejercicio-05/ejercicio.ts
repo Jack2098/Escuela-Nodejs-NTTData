@@ -5,7 +5,7 @@
     let age = 24;
     age = 25;
     
-    const name = 'Jack';
+    const NOMBRE = 'Jack';
     
     // *** Ejercicio 2 ***
     
@@ -31,7 +31,7 @@
     }
     
     const calculoSumaCuadro = (x: number, y: number) => {
-        const resultado = (x + y)^2;
+        const resultado = Math.pow(x + y, 2);
         return `El resultado es ${resultado}`;
     };
     console.log(calculoSumaCuadro(3, 5));
