@@ -6,4 +6,7 @@ export interface ResponseApi {
     };
     currencies: Currencies;
     borders: Array<string>;
+    lenguages: {
+        [key: string]: string;
+    }
 }

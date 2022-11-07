@@ -1,12 +1,16 @@
+import { ResponseApi } from './interfaces/ResposeApi.interface';
+import { Currencies } from './interfaces/Currencies.interface';
+
 // *** Ejercicio 1 ***
 
 (async() => {
 
     const searchByCodeCountry = async (alpha3Code: string) => {
+
+      const url = `https://restcountries.com/v3.1/alpha/${alpha3Code}`;
+      
       try {
-        const res = await fetch(
-          `https://restcountries.com/v3.1/alpha/${alpha3Code}`
-        )
+        const res = await fetch(url);
         const data = await res.json();
         return data;
       } catch (error) {
@@ -25,9 +29,8 @@
       if (data.status >= 400) {
         console.log(data.message);
       } else {
-  
+
         const { name, currencies, borders, languages } = data[0];
-  
         const currencie = obtenerDatosDeObjetosDinamicos(currencies)[0];
 
         const listaLenguage = obtenerDatosDeObjetosDinamicos(languages);
@@ -49,8 +52,6 @@
     const obtenerDatosDeObjetosDinamicos = (data: any) => {
         const keys = Object.keys(data);
         const array: any = [];
-
-        console.log(keys);
         
         keys.forEach(key => {
             array.push(data[key]);

@@ -1,6 +1,6 @@
 
 export interface Currencies {
-    COP: {
+    [key: string]: {
         name: string;
         symbol: string;
     }
